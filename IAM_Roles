@@ -65,3 +65,22 @@
 
 ### 7. Exceptions
 - Any deviation must be documented, justified, and approved by Cloud Security Team.
+
+Example of JSON IAM policy file to provide a least‑privilege, read‑only access to Amazon S3:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "S3ReadOnlyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::leastprivilege-bucket",
+        "arn:aws:s3:::leastprivilege-bucket/*"
+      ]
+    }
+  ]
+}
