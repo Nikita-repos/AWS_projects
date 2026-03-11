@@ -1,0 +1,50 @@
+Object Store or Cloud Store  follows https://restapi protocol
+
+=================================
+
+->called S3 in AWS--> applicable on https//restapi that me i can get put post update or delete a file ---> you can't direct read or write is allowed. need to upload or download and then we can read and write
+--> globally accessible
+-> WORM storage -> Write Once Read Many --media, music, logs, videos, backup
+-> URL accessible
+-> cheapest storage
+->unlimited Storage but with a exception 1 file or object limit is 5TB
+->Pay as you go (prorata)
+->  Not allowed Installation --->only one drawback
+-> Provides HA =99.99%
+-> High Durability-->that is 11 nines ==99.9999999
+-> Management Storage --nothing to do with capacity that will be managed by AWS-> Patched by AWS , No security concern,  no maintenance by us ---->All are managed by AWS
+->High speed 1byte less the 9ms
+Tier BAsed Storage
+--> Need to learn about Bucket, Object, keyname, permission, policy
+_>Buckets are DNS complaint.
+====================================================================
+
+S3 is a C drive that is globally acesssible but regionally stored
+Bucket===Folder
+Object===File
+Keyname==FileName
+
+
+Bucket names are DNS complaint that means cannot be of same name (UNIQUE).
+==========================================================================
+
+Bucket inside bucket is not allowed, Folders that is just a path is allowed inside bucket.
+===========================================================================
+
+Bucket will be created to the nearest location of your client.
+
+___________________________________________________________________________________________________________________________________________________________
+
+Bucket class storage analysis---> 
+
+Tiers in AWS
+
+ 1. Standard Storage--> By default and most expensive as it belongs to hot tier.--> HA(99.99) HS(11 nines) speed <9ms No retrieval fees. 
+ 2. StandardIA (Standard infrequent Access) --> goods for data with 30days access time, Warm tier, not by default need to move from hot to warm, -->retrieval fee
+ 3. Intelligent Tier --> Depending upon the  dataaccess pattern, It will store the data in that Tier--> fee to manage the data--->decision maker
+ 4. OneZone IA --> The above  teir stores data in 3 AZs but this stores in 1 AZs and used for disaster recovery, HA is 99.95, retrieval fee->WArm
+ 5. S3 Glacier Instant Access --> data used after 180days, retrieval fee
+ 6. S3 glacier flexible access --> Will get data access in minutes to hours, less cost 
+ 7. S3 Glacier Deep archive --> data in hours , cheapest.
+Intelligent tier only choose between 1 and 2.
+
