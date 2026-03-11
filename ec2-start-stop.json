@@ -1,0 +1,28 @@
+It grants least‑privilege permissions to start and stop EC2 instances only:
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EC2StartStopAccess",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:StartInstances",
+        "ec2:StopInstances",
+        "ec2:DescribeInstances"
+      ],
+      "Resource": "arn:aws:ec2:us-east-1:729386419948:instance/*"
+    }
+  ]
+}
+
+ersion: "2012-10-17" is the current IAM policy language version.
+
+Actions:
+
+StartInstances → allows starting EC2 instances.
+
+StopInstances → allows stopping EC2 instances.
+
+DescribeInstances → lets the user list and view instance details (often needed to identify which instance to manage).
+
+Resource: Scoped to all EC2 instances in a specific AWS account (729386419948) and region (us-east-1).
