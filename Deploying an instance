@@ -1,0 +1,25 @@
+# SOP: Deploying Linux Web Server on AWS EC2
+
+## 1. Pre-requisites
+- AWS account with admin access
+- SSH key pair created
+- Basic Linux knowledge
+- Web application code (optional)
+
+## 2. Launch EC2 Instance
+1. Log in to AWS Console
+2. Go to **EC2 → Launch Instance**
+3. Select Ubuntu AMI
+4. Choose instance type (e.g., t2.micro)
+5. Configure key pair
+6. Attach IAM role (least privilege)
+7. Add storage (root + optional EBS)
+8. Configure security group:
+   - Allow SSH (22) from trusted IP
+   - Allow HTTP (80) and HTTPS (443)
+9. Review and Launch
+
+## 3. Connect to Instance
+```bash
+ssh -i your-key.pem ubuntu@<Public-IP>
+sudo apt update && sudo apt upgrade -y
