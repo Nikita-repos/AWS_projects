@@ -1,0 +1,67 @@
+## IAM Roles and Policies
+
+### 1. Purpose
+- Establish standardized practices for creating, managing, and auditing IAM roles and policies.  
+- Ensure least‑privilege access across AWS accounts.  
+- Maintain compliance with organizational and regulatory requirements.  
+
+### 2. Scope
+- Applies to all AWS accounts managed by the organization.  
+- Covers IAM roles, policies, and their assignment to users, groups, and services.  
+
+### 3. Responsibilities
+- **Cloud Security Team**: Approves and audits IAM policies.  
+- **DevOps/Engineering Team**: Requests and implements IAM roles.  
+- **Compliance Team**: Ensures adherence to regulatory standards.  
+- **Account Owners**: Review assigned roles regularly.  
+
+### 4. Procedure
+#### Step 1: Role Creation
+- Use IAM roles instead of long‑term credentials.  
+- Define trust relationships (who can assume the role).  
+- Assign roles to AWS services (EC2, Lambda) or federated users.  
+
+#### Step 2: Policy Design
+- Follow least‑privilege principle.  
+- Use AWS managed policies where possible.  
+- For custom policies:
+  - Start with minimal permissions.  
+  - Validate with IAM Policy Simulator.  
+  - Document purpose and owner.  
+
+#### Step 3: Policy Attachment
+- Attach policies to roles, not directly to users.  
+- Avoid inline policies; prefer reusable managed policies.  
+- Group similar permissions into roles for consistency.  
+
+#### Step 4: Review & Approval
+- All new policies must be reviewed by Cloud Security Team.  
+- Maintain version control for custom policies.  
+- Require approval before deployment.  
+
+#### Step 5: Monitoring & Auditing
+- Enable CloudTrail for tracking IAM activity.  
+- Use IAM Access Analyzer to detect overly permissive policies.  
+- Perform quarterly audits of roles and policies.  
+
+#### Step 6: Rotation & Decommissioning
+- Rotate temporary credentials regularly.  
+- Decommission unused roles/policies after 90 days of inactivity.  
+- Archive policy history for compliance.  
+
+### 5. Compliance & Security Controls
+- Enforce MFA for all IAM users.  
+- Deny wildcard (`*`) permissions unless explicitly approved.  
+- Restrict use of `AdministratorAccess` policy.  
+- Implement Service Control Policies (SCPs) in AWS Organizations.  
+
+### 6. Documentation & Reporting
+- Maintain a central repository of IAM roles and policies.  
+- Document:
+  - Role name, purpose, owner  
+  - Attached policies  
+  - Trust relationships  
+- Generate monthly compliance reports.  
+
+### 7. Exceptions
+- Any deviation must be documented, justified, and approved by Cloud Security Team.
